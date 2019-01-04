@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-  state = {
-    count: 0,
-    tags: []
-  }
-  //Write a method that is dependent on state
-  renderTags() {
-    return this.state.tags.length === 0 ?
-      <p>There are no tags</p>
-      : <ul>{this.state.tags.map((tag, i) => (<li key={tag}>{tag}</li>))}</ul>;
-  }
-  render() {
-    return (
-      <React.Fragment>
-        {/* Write another expression that will render based on state with the && operand */}
-        {this.state.tags.length === 0 && 'Please create a new tag!'}
-        {this.renderTags()}
-      </React.Fragment>
-    );
-  }
+	state = {
+		count: 0,
+	};
+
+	constructor() {
+		super();
+		this.handleIncrement = this.handleIncrement.bind(this);
+	}
+
+	handleIncrement() {
+		console.log('Increment Clicked!', this);
+	}
+
+	render() {
+		return (
+			<React.Fragment>
+				<span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+				<button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">
+					Increment
+				</button>
+			</React.Fragment>
+		);
+	}
+
+	formatCount() {
+		return this.state.count === 0 ? 'Zero' : this.state.count;
+	}
+
+	getBadgeClasses() {
+		let classes = 'badge m-2 badge-';
+		classes += this.state.count === 0 ? 'warning' : 'secondary';
+		return classes;
+	}
 }
 
 export default Counter;
