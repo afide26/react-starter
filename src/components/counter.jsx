@@ -3,28 +3,22 @@ import React, { Component } from 'react';
 class Counter extends Component {
   state = {
     count: 0,
-    tags: ['tag1', 'tag2', 'tag3']
+    tags: []
+  }
+  //Write a method that is dependent on state
+  renderTags() {
+    return this.state.tags.length === 0 ?
+      <p>There are no tags</p>
+      : <ul>{this.state.tags.map((tag, i) => (<li key={tag}>{tag}</li>))}</ul>;
   }
   render() {
     return (
       <React.Fragment>
-        <span className={this.getBadgeColor()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
-        <ul>
-          {this.state.tags.map((tag, i) => (<li key={tag}>{tag}</li>))}
-        </ul>
+        {/* Write another expression that will render based on state with the && operand */}
+        {this.state.tags.length === 0 && 'Please create a new tag!'}
+        {this.renderTags()}
       </React.Fragment>
     );
-  }
-  getBadgeColor() {
-    let classes = "badge m-2 ";
-    classes += (this.state.count === 0) ? "badge-warning" : "badge-primary";
-    return classes;
-  }
-
-  formatCount() {
-    const { count } = this.state;
-    return count === 0 ? "Zero" : count;
   }
 }
 
