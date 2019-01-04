@@ -7,8 +7,17 @@ class Counter extends Component {
 
 	//Use the arrow function as a value to the method to bind this
 	handleIncrement = () => {
-		console.log('Increment Clicked!', this);
+		this.setState({ count: this.state.count + 1 });
 	};
+
+	//Option 2 - Recommended
+	// handleIncrement = () => {
+	// 	this.setState(() => {
+	// 		return {
+	// 			count: this.state.count + 1,
+	// 		};
+	// 	});
+	// };
 
 	render() {
 		return (
