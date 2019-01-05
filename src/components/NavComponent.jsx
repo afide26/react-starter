@@ -1,19 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Navigation extends Component {
-  render() {
-    const { totalCounters: counterPill } = this.props;
-    return (
-      <nav className="navbar navbar-light bg-light">
-        <a className="navbar-brand" href="#">
-          Navbar
-          <span className="badge badge-pill badge-secondary">
-            {counterPill}
-          </span>
-        </a>
-      </nav>
-    );
-  }
-}
+const Navigation = ({ totalCounters: counterPill }) => {
+  return (
+    <nav className="navbar navbar-light bg-light">
+      <a className="navbar-brand" href="#">
+        Navbar
+        <span className="badge badge-pill badge-secondary m-2">
+          {counterPill}
+        </span>
+      </a>
+    </nav>
+  );
+};
 
 export default Navigation;
