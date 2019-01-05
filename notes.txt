@@ -19,3 +19,14 @@ Lesson - Implementing Value Counter
 
 Lesson - Stateless Functional Components and Destructuring
   Converted Counters and Navigation to SFC and destructured variables of props
+
+Lesson - Main Lifecycle Hooks of a component
+  Mount - When a new instance of a component is created, the following methods are called in order:
+    1. constructor()
+    2. render()
+    3. componentDidMount
+  Update - when the state changes
+    1. render()
+    2. componentDidUpdate()
+  Unmount - when the component is deleted from the virtual DOM and the DOM tree
+    1. componentWillUnmount()
