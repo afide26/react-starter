@@ -11,3 +11,8 @@ Lesson - Lifting the State Up
   Notes:
     - The methods were passed as props and by convention the props were named with 'on' prefix
       e.g. onDelete, onReset and onIncrement and passed the reference of the methods performing the actions.
+
+Lesson - Implementing Counter
+  In this lesson, after the state has been moved to the App component, a new props was passed to the Navigation component to count the number of items that have values higher than 0
+  totalCounters={this.state.counters.filter(c => c.value > 0).length}
+  ** check the chaining of length to the filtered totalCounters
