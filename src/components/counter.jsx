@@ -6,24 +6,16 @@ class Counter extends Component {
 	};
 
 	//Use the arrow function as a value to the method to bind this
-	handleIncrement = () => {
+	handleIncrement = product => {
+		console.log(product);
 		this.setState({ count: this.state.count + 1 });
 	};
-
-	//Option 2 - Recommended
-	// handleIncrement = () => {
-	// 	this.setState(() => {
-	// 		return {
-	// 			count: this.state.count + 1,
-	// 		};
-	// 	});
-	// };
 
 	render() {
 		return (
 			<React.Fragment>
 				<span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-				<button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">
+				<button onClick={() => this.handleIncrement({ id: 1 })} className="btn btn-secondary btn-sm">
 					Increment
 				</button>
 			</React.Fragment>
