@@ -1,7 +1,13 @@
-Multiple Components in Sync
+Lesson - Multiple Components in Sync
 - In this lesson, the Application has changed with the following hierarchy:
 App
   - Navbar
   - Counters
     - Counter
 **However, the counters state is not shared between the Navbar and Counters components. In cases like this, we need to move the state up to App, which is the parent component of both Navbar and Counters and pass them as props.
+
+Lesson - Lifting the State Up
+  In this lesson, all the state and methods of Counters component were moved to App component
+  Notes:
+    - The methods were passed as props and by convention the props were named with 'on' prefix
+      e.g. onDelete, onReset and onIncrement and passed the reference of the methods performing the actions.
