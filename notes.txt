@@ -1,0 +1,7 @@
+Multiple Components in Sync
+- In this lesson, the Application has changed with the following hierarchy:
+App
+  - Navbar
+  - Counters
+    - Counter
+**However, the counters state is not shared between the Navbar and Counters components. In cases like this, we need to move the state up to App, which is the parent component of both Navbar and Counters and pass them as props.

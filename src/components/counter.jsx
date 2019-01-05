@@ -1,37 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Counter extends Component {
-	state = {
-		count: 0,
-	};
+  render() {
+    return (
+      <div>
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+        {/* Pass an arrow function to the function reference to pass an argument */}
+        <button
+          onClick={() => this.props.onIncrement(this.props.counter)}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
+      </div>
+    );
+  }
 
-	//Use the arrow function as a value to the method to bind this
-	handleIncrement = product => {
-		console.log(product);
-		this.setState({ count: this.state.count + 1 });
-	};
+  formatCount() {
+    return this.props.counter.value === 0 ? "Zero" : this.props.counter.value;
+  }
 
-	render() {
-		return (
-			<React.Fragment>
-				<span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-				{/* Pass an arrow function to the function reference to pass an argument */}
-				<button onClick={() => this.handleIncrement({ id: 1 })} className="btn btn-secondary btn-sm">
-					Increment
-				</button>
-			</React.Fragment>
-		);
-	}
-
-	formatCount() {
-		return this.state.count === 0 ? 'Zero' : this.state.count;
-	}
-
-	getBadgeClasses() {
-		let classes = 'badge m-2 badge-';
-		classes += this.state.count === 0 ? 'warning' : 'secondary';
-		return classes;
-	}
+  getBadgeClasses() {
+    let classes = "badge m-2 badge-";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
+    return classes;
+  }
 }
 
 export default Counter;
