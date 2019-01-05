@@ -1,7 +1,6 @@
 import React from "react";
 
 const Navigation = ({ totalCounters: counterPill }) => {
-  console.log("Navbar - Rendered");
   return (
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand" href="#">
