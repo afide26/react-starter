@@ -15,6 +15,7 @@ class Counter extends Component {
 		return (
 			<React.Fragment>
 				<span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+				{/* Pass an arrow function to the function reference to pass an argument */}
 				<button onClick={() => this.handleIncrement({ id: 1 })} className="btn btn-secondary btn-sm">
 					Increment
 				</button>
